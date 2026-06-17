@@ -82,4 +82,50 @@ $(document).ready(function () {
     //   showSlide(currentSlide);
     // }, 3000);
   }
+
+  // Tab jquery
+  {
+    // Change state tab header, show / hide tab content
+    const $tabButton = $(".content__tab");
+    const $tabContent = $(".content__tab-content");
+
+    $tabButton.click(function () {
+      // If choose active tab --> return
+      if ($(this).hasClass("content__tab--active")) {
+        return;
+      }
+
+      $tabButton.removeClass("content__tab--active");
+      $tabContent.removeClass("content__tab-content--active").hide();
+
+      $(this).addClass("content__tab--active");
+      const tabContentId = $(this).data("tab");
+      $("#" + tabContentId)
+        .addClass("content__tab-content--active")
+        .fadeIn(300);
+    });
+  }
+
+  // Accordion jquery
+  {
+    // Show/hide content in accordion tab
+    const $accordionButton = $(".content__accordion-header");
+    const $accordionContent = $(".content__accordion-body");
+
+    $accordionButton.click(function () {
+      if ($(this).hasClass("content__accordion-header--active")) {
+        return;
+      }
+      $accordionButton.removeClass("content__accordion-header--active");
+      $accordionContent
+        .removeClass(".content__accordion-body--active")
+        .slideUp(300);
+
+      $(this).addClass("content__accordion-header--active");
+      const accordionContentId = $(this).data("tab");
+      $("#" + accordionContentId)
+        .addClass("content__accordion-body--active")
+        .slideDown(300);
+    });
+  }
 });

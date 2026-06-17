@@ -16,14 +16,19 @@
   - Slider Image:
     - images display flex, overflow-x hidden, then set width in list, marginLeft -100% per image, disabled when animate
     - dots: update dot according to target slide, this.index, disabled when animate.
-  - Tab function
+  - Tab function:
+    - active class in tab header & tab content
+    - data tab
+    - fadeIn, hide in tab content
+    - check if current tab is active tab, if not then remove 2 active, hide content, add 2 active to active tab and fadeIn
   - Accordion function
-  - Menu 3 levels
+    - active class
+  - 3-levels menu
   - List of news
 
 ## Goal
 
-- Learning and using slide image, tab function, accordion, menu 3 levels in jquery
+- Learning and using slider image, tab function, accordion, 3-levels menu in jquery
 
 ## UI Screenshots
 
@@ -33,10 +38,11 @@
 
 ## Time Tracking
 
-| Date | Task | Notes |
-| ---------- | -------------------------------------------------------- | . |
-| 2026-06-16 | Setup exercise, create README, do slider image | . |
-| 2026-06-17 | Do slider image jquery (cont) | . |
+| Date       | Task                                           | Notes |
+| ---------- | ---------------------------------------------- | ----- |
+| 2026-06-16 | Setup exercise, create README, do slider image | .     |
+| 2026-06-17 | Do slider image jquery (cont), tab, accordion  | .     |
+| 2026-06-18 | Do multilevel menu, list of news, responsive   | .     |
 
 ## Future Work
 

@@ -10,6 +10,13 @@
   --slider-button-hover: #5e91ff;
   --slider-dot-color: #cccbcb;
   --slider-dot-hover: #5e91ff;
+  --tab-text-not-active: #5e91ff;
+  --tab-background-hover: #ededed;
+  --tab-border-color: #c1c1c1;
+  --accordion-tab-text: #5e91ff;
+  --accordion-tab-background: #f6f6f6;
+  --accordion-tab-border: #dbdbdb;
+  --accordion-tab-hover: #ededed;
 
   /* Fluid spacing */
   --space-xs: clamp(0.2rem, 0.3vw, 0.4rem);
@@ -17,6 +24,11 @@
   --space-md: clamp(1rem, 2vw, 1.5rem);
   --space-lg: clamp(1.5rem, 3vw, 3rem);
   --space-xl: clamp(2rem, 5vw, 5rem);
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
 
   /* Fluid typography */
   --text-xs: clamp(0.7rem, 0.8vw + 0.3rem, 0.85rem);
@@ -50,13 +62,13 @@ body {
 
 header {
   position: sticky;
-  z-index: 2;
+  z-index: 3;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
   padding-inline: var(--space-lg);
-  padding-block: var(--space-md);
+  padding-block: var(--space-sm);
   background: var(--header-background);
   border-bottom: 1px solid var(--header-border-bottom);
 }
@@ -70,8 +82,13 @@ ul li a {
   color: inherit;
 }
 
-header ul li a:not(:last-child)::after {
-  content: " | ";
+header ul li a:not(:first-child) {
+  padding-left: var(--space-xs);
+}
+
+header ul li a:not(:last-child) {
+  border-right: 1px solid black;
+  padding-right: var(--space-xs);
 }
 
 header ul li a:hover {
@@ -104,8 +121,8 @@ main {
   border: none;
   cursor: pointer;
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .slider__button:hover {
@@ -145,14 +162,127 @@ main {
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .slider__dot:hover,
 .slider__dot--active {
   background-color: var(--slider-dot-hover);
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Content - left column */
+.content__left-column,
+.content__middle-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.content__tabs {
+  display: flex;
+  gap: var(--space-xs);
+  border-bottom: 1px solid var(--tab-border-color);
+}
+
+.content__tab {
+  padding: var(--space-sm);
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+  color: var(--tab-text-not-active);
+  cursor: pointer;
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border 0.3s ease;
+}
+
+.content__tab:hover {
+  background: var(--tab-background-hover);
+}
+
+.content__tab--active {
+  border-left: 1px solid var(--tab-border-color);
+  border-top: 1px solid var(--tab-border-color);
+  border-right: 1px solid var(--tab-border-color);
+  color: inherit;
+  cursor: default;
+}
+
+.content__tab--active:hover {
+  background: none;
+}
+
+.content__tab--active a {
+  cursor: default;
+}
+
+.content__tab-content {
+  display: none;
+  line-height: 1.5;
+}
+
+.content__tab-content--active {
+  display: block;
+}
+
+/* Content - middle column */
+.content__accordion-tabs {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accordion-tab-border);
+}
+
+.content__accordion-tab:first-child .content__accordion-header {
+  border-top: 0;
+}
+
+.content__accordion-header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--accordion-tab-text);
+  background: var(--accordion-tab-background);
+  border-top: 1px solid var(--accordion-tab-border);
+  border-bottom: 1px solid var(--accordion-tab-border);
+  margin-bottom: -1px;
+  padding: var(--space-md);
+  padding-right: 0;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border 0.3s ease;
+}
+
+.content__accordion-header:hover {
+  background: var(--accordion-tab-hover);
+}
+
+.content__accordion-header--active {
+  z-index: 2;
+}
+
+.content__accordion-header--active .content__accordion-icon {
+  transform: rotate(90deg);
+}
+
+.content__accordion-body {
+  display: none;
+  padding: var(--space-md);
+}
+
+.content__accordion-body--active {
+  display: block;
 }
 
 /* Mobile */

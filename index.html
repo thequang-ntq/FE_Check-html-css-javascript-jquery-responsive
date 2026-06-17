@@ -11,10 +11,10 @@
     <header>
       <ul>
         <li>
-          <a href="#">TRANG CHỦ</a>
-          <a href="#">GIỚI THIỆU</a>
-          <a href="#">SẢN PHẨM</a>
-          <a href="#">CONTACT US</a>
+          <a href="#!">TRANG CHỦ</a>
+          <a href="#!">GIỚI THIỆU</a>
+          <a href="#!">SẢN PHẨM</a>
+          <a href="#!">CONTACT US</a>
         </li>
       </ul>
     </header>
@@ -26,7 +26,7 @@
         <ul class="slider__images">
           <!-- Clone image 3 -->
           <li class="slider__image">
-            <a href="#"
+            <a href="#!"
               ><img
                 class="slider__img"
                 alt="image-3"
@@ -35,7 +35,7 @@
           </li>
           <!-- 3 images -->
           <li class="slider__image">
-            <a href="#"
+            <a href="#!"
               ><img
                 class="slider__img"
                 alt="image-1"
@@ -43,7 +43,7 @@
             /></a>
           </li>
           <li class="slider__image">
-            <a href="#"
+            <a href="#!"
               ><img
                 class="slider__img"
                 alt="image-2"
@@ -51,7 +51,7 @@
             /></a>
           </li>
           <li class="slider__image">
-            <a href="#"
+            <a href="#!"
               ><img
                 class="slider__img"
                 alt="image-3"
@@ -60,7 +60,7 @@
           </li>
           <!-- Clone image 1 -->
           <li class="slider__image">
-            <a href="#"
+            <a href="#!"
               ><img
                 class="slider__img"
                 alt="image-1"
@@ -79,7 +79,176 @@
       </section>
 
       <!-- Main content: Left, middle, right column -->
-      <section class="content"></section>
+      <section class="content">
+        <!-- Left column: Tab -->
+        <div class="content__left-column">
+          <!-- Tab header -->
+          <ul class="content__tabs">
+            <li
+              class="content__tab content__tab--active"
+              data-tab="tab-content-home"
+            >
+              <a href="#!">Home</a>
+            </li>
+            <li class="content__tab" data-tab="tab-content-profile">
+              <a href="#!">Profile</a>
+            </li>
+            <li class="content__tab" data-tab="tab-content-contact">
+              <a href="#!">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Tab content -->
+          <div class="content__tab-contents">
+            <div
+              id="tab-content-home"
+              class="content__tab-content content__tab-content--active"
+            >
+              Pellentesque tincidunt mi ante, eu varius ligula luctus nec.
+              Curabitur ut ipsum sed lacus auctor pulvinar sed nec ex. Nullam
+              sit amet tellus nec sem condimentum scelerisque. Nulla facilisi.
+              Nulla non enim sagittis, ornare leo in, finibus enim. Maecenas
+              consectetur volutpat volutpat. Pellentesque tincidunt eget tortor
+              suscipit euismod. Curabitur dapibus lacus dictum tempus ultricies.
+              Fusce condimentum enim nunc, quis pretium quam iaculis a. Mauris
+              non tempus enim. Donec lorem lorem, porttitor sit amet purus ac,
+              vulputate feugiat quam. Mauris eleifend sem odio, ac dignissim
+              velit elementum vitae. Donec eros erat, suscipit ornare molestie
+              ut, volutpat non tellus. Nunc orci dui.
+            </div>
+            <div id="tab-content-profile" class="content__tab-content">
+              Aliquam quis purus pellentesque, facilisis augue a, condimentum
+              nunc. Integer luctus eu odio non scelerisque. Proin auctor viverra
+              pellentesque. Donec porttitor sagittis consequat. Sed vulputate id
+              orci eget ultricies. Suspendisse bibendum mi purus. Nullam nisi
+              sapien, auctor quis tincidunt ut, dapibus et metus. Morbi at
+              libero leo. Vivamus rhoncus vestibulum mattis. Vivamus faucibus,
+              purus eget hendrerit tincidunt, velit diam tristique massa, in
+              interdum orci erat a tellus. Duis malesuada euismod dui nec
+              semper. Nam vulputate vulputate accumsan. Morbi finibus elit
+              ipsum, sit amet mollis nibh hendrerit molestie. In mollis augue
+              magna. Curabitur fringilla eget turpis eu pharetra. Sed sit amet.
+            </div>
+            <div id="tab-content-contact" class="content__tab-content">
+              Donec imperdiet nisl mauris, et feugiat arcu tempor a. Quisque sit
+              amet varius metus, in tempor tellus. Curabitur et convallis leo.
+              In hac habitasse platea dictumst. Ut finibus tempor purus, non
+              aliquam augue. Duis non molestie quam, sed feugiat nunc.
+              Pellentesque facilisis ligula et tempus vestibulum. Aliquam elit
+              odio, gravida id nisl eget, placerat vestibulum diam. Sed maximus
+              dolor ac massa feugiat pretium. Nunc sapien dui, gravida ac orci
+              a, hendrerit elementum nunc. Duis a laoreet lorem. Etiam molestie
+              sollicitudin nibh id vehicula. Phasellus sagittis gravida rutrum.
+              Mauris blandit risus at suscipit laoreet. Nulla consequat tempor
+              neque scelerisque sagittis. Aenean.
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle column: Accordion + 3-levels menu -->
+        <div class="content__middle-column">
+          <!-- Accordion -->
+          <div class="content__accordion-tabs">
+            <!-- Item 1 -->
+            <div class="content__accordion-tab">
+              <div
+                class="content__accordion-header content__accordion-header--active"
+                data-tab="accordion-item-1"
+              >
+                <span class="content__accordion-title"
+                  >Collapsible Group Item #1</span
+                >
+                <div class="content__accordion-icon">▶</div>
+              </div>
+
+              <div
+                id="accordion-item-1"
+                class="content__accordion-body content__accordion-body--active"
+              >
+                <div class="content__accordion-content">
+                  In vestibulum lacus quis magna malesuada, a hendrerit tellus
+                  ullamcorper. Vestibulum a sem tincidunt tellus rhoncus sodales
+                  ac eget arcu. Sed eu tellus vel ex maximus iaculis. Maecenas
+                  id leo in urna ullamcorper ullamcorper. Aliquam ligula massa,
+                  condimentum et iaculis vel, porttitor sit amet erat. Vivamus
+                  rutrum, arcu vel tempus pellentesque, metus odio gravida nibh,
+                  eu lobortis felis turpis nec sem. Nullam eu erat sit amet nibh
+                  ornare condimentum. Nulla hendrerit tristique porta. Integer
+                  augue purus, vestibulum a faucibus eu, dapibus non velit. Nunc
+                  sit amet mi nisl. Nulla nisl ipsum, fringilla id auctor a,
+                  bibendum ut urna. Vivamus at.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="content__accordion-tab">
+              <div
+                class="content__accordion-header"
+                data-tab="accordion-item-2"
+              >
+                <span class="content__accordion-title"
+                  >Collapsible Group Item #2</span
+                >
+                <div class="content__accordion-icon">▶</div>
+              </div>
+
+              <div id="accordion-item-2" class="content__accordion-body">
+                <div class="content__accordion-content">
+                  Donec sapien est, blandit nec luctus at, interdum non lacus.
+                  Nunc a tincidunt mi. Maecenas consequat molestie metus
+                  pellentesque vehicula. Cras vel elementum est, eget congue
+                  tellus. Nulla semper lorem nec enim dapibus, sed tempus nibh
+                  tristique. Fusce dapibus feugiat lectus sit amet scelerisque.
+                  Pellentesque scelerisque arcu quis est posuere, vitae lobortis
+                  quam auctor. Sed et tellus sit amet urna vulputate pharetra a
+                  eget mauris. Aenean sit amet mauris tortor. Ut eget finibus
+                  elit. Phasellus ante sem, rutrum eget eleifend non,
+                  consectetur ut lorem. Donec tincidunt neque sit amet mollis
+                  facilisis. Sed sed pharetra turpis. Morbi risus lorem, luctus
+                  a.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="content__accordion-tab">
+              <div
+                class="content__accordion-header"
+                data-tab="accordion-item-3"
+              >
+                <span class="content__accordion-title"
+                  >Collapsible Group Item #3</span
+                >
+                <div class="content__accordion-icon">▶</div>
+              </div>
+
+              <div id="accordion-item-3" class="content__accordion-body">
+                <div class="content__accordion-content">
+                  Morbi at arcu eget elit sodales luctus vel ac dui. Morbi
+                  ullamcorper nibh ac nisi venenatis lacinia. Quisque non nisl
+                  quis elit tempus bibendum. Morbi id laoreet leo. Quisque
+                  porttitor nisl ac aliquam pharetra. In porttitor luctus
+                  libero, eu dignissim dui. Fusce tincidunt eleifend mollis. Sed
+                  ullamcorper, eros vitae vehicula faucibus, dolor nibh gravida
+                  ex, sed dignissim dolor elit nec mi. Nam ullamcorper vel mi
+                  nec posuere. Pellentesque habitant morbi tristique senectus et
+                  netus et malesuada fames ac turpis egestas. In ultrices
+                  vulputate hendrerit. Cras sollicitudin vehicula augue at
+                  dignissim. Sed metus mauris, pulvinar a pulvinar eu, eleifend
+                  eu sem.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multilevel menu (3 levels) -->
+          <div class="content__muitilevel-tabs"></div>
+        </div>
+
+        <!-- Right column: News list -->
+        <div class="content__right-column">a</div>
+      </section>
     </main>
     <script src="./plugins/jquery/jquery-4.0.0.min.js"></script>
     <script src="script.js" defer></script>
