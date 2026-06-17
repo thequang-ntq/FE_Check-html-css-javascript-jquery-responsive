@@ -1,0 +1,27 @@
+Kiểm tra kiến thức cơ bản, nếu đáp ứng sẽ qua tìm hiểu Bootstrap, PSD
+
+Yêu cầu:
+
+Lên giao diện website như file đính kèm.
+
+Xây dựng layout 3 cột bằng html,css,jquery
+
+Header: Dòng text "HTML - CSS - JQUERY"
+
+Nav: Hiển thị menu 2 cấp hoặc 3 cấp có thể sử dụng CSS3 hoặc jquery
+
+Slider: Hiển thị slider ảnh
+
+Content: Sidebar left "Sử dụng jquery tab"
+
+Content: Article "Sử dụng jquery accordion"
+
+Content: Sidebar right "Chỉ hiển thị danh sách tin tức gồm ảnh, tiêu đề, ngày…., "
+
+Footer: Hiển thị Copyright © Allright Reserved by NDDUONG
+
+Responsive cho các thiết bị tablet, mobile
+
+Tablet: layout 2 cột
+
+Mobile: layout 1 cột

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header: Navigation bar -->
+    <header>
+      <ul>
+        <li>
+          <a href="#">TRANG CHỦ</a>
+          <a href="#">GIỚI THIỆU</a>
+          <a href="#">SẢN PHẨM</a>
+          <a href="#">CONTACT US</a>
+        </li>
+      </ul>
+    </header>
+    <!-- Main: Slider image, column contents -->
+    <main>
+      <!-- Slider image -->
+      <section class="slider">
+        <button class="slider__button slider__button--left"><</button>
+        <ul class="slider__images">
+          <!-- Clone image 3 -->
+          <li class="slider__image">
+            <a href="#"
+              ><img
+                class="slider__img"
+                alt="image-3"
+                src="./images/image-3.jpg"
+            /></a>
+          </li>
+          <!-- 3 images -->
+          <li class="slider__image">
+            <a href="#"
+              ><img
+                class="slider__img"
+                alt="image-1"
+                src="./images/image-1.jpg"
+            /></a>
+          </li>
+          <li class="slider__image">
+            <a href="#"
+              ><img
+                class="slider__img"
+                alt="image-2"
+                src="./images/image-2.jpg"
+            /></a>
+          </li>
+          <li class="slider__image">
+            <a href="#"
+              ><img
+                class="slider__img"
+                alt="image-3"
+                src="./images/image-3.jpg"
+            /></a>
+          </li>
+          <!-- Clone image 1 -->
+          <li class="slider__image">
+            <a href="#"
+              ><img
+                class="slider__img"
+                alt="image-1"
+                src="./images/image-1.jpg"
+            /></a>
+          </li>
+        </ul>
+        <button class="slider__button slider__button--right">></button>
+
+        <!-- Dot -->
+        <div class="slider__dots">
+          <button class="slider__dot slider__dot--active"></button>
+          <button class="slider__dot"></button>
+          <button class="slider__dot"></button>
+        </div>
+      </section>
+
+      <!-- Main content: Left, middle, right column -->
+      <section class="content"></section>
+    </main>
+    <script src="./plugins/jquery/jquery-4.0.0.min.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
