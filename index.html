@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Overlay -->
-    <div class="header__overlay"></div>
-
-    <!-- Header: Navigation bar -->
+    <!-- Header: Top-header + navigation bar -->
     <header>
+      <!-- Overlay -->
+      <div class="header__overlay"></div>
+
+      <!-- Top-header -->
+      <div class="header__top-header">
+        <div class="header__top-header-text">HTML - CSS - JQUERY</div>
+      </div>
+
+      <!-- Navigation bar -->
       <nav class="header__nav">
         <ul>
           <li><a href="#!">TRANG CHỦ</a></li>
@@ -24,7 +30,7 @@
         </ul>
       </nav>
 
-      <!-- Mobile menu -->
+      <!-- Mobile menu (fixed position) -->
       <nav class="header__nav-mobile">
         <!-- Mobile menu button -->
         <button class="header__mobile-button">
@@ -33,9 +39,16 @@
           <span class="header__line"></span>
         </button>
 
-        <!-- List -->
+        <!-- Mobile menu -->
         <div class="header__mobile-menu">
+          <!-- Menu header -->
+          <div class="header__mobile-header">
+            <button class="header__mobile-close">X</button>
+          </div>
+
+          <!-- List -->
           <ul class="header__mobile-list">
+            <li class="header__mobile-title">ĐIỀU HƯỚNG</li>
             <li><a class="header__mobile-item" href="#!">TRANG CHỦ</a></li>
             <li><a class="header__mobile-item" href="#!">GIỚI THIỆU</a></li>
             <li><a class="header__mobile-item" href="#!">SẢN PHẨM</a></li>
@@ -48,53 +61,56 @@
     <main>
       <!-- Slider image -->
       <section class="slider">
-        <button class="slider__button slider__button--left"><</button>
-        <ul class="slider__images">
-          <!-- Clone image 3 -->
-          <li class="slider__image">
-            <a href="#!"
-              ><img
-                class="slider__img"
-                alt="image-3"
-                src="./images/image-3.jpg"
-            /></a>
-          </li>
-          <!-- 3 images -->
-          <li class="slider__image">
-            <a href="#!"
-              ><img
-                class="slider__img"
-                alt="image-1"
-                src="./images/image-1.jpg"
-            /></a>
-          </li>
-          <li class="slider__image">
-            <a href="#!"
-              ><img
-                class="slider__img"
-                alt="image-2"
-                src="./images/image-2.jpg"
-            /></a>
-          </li>
-          <li class="slider__image">
-            <a href="#!"
-              ><img
-                class="slider__img"
-                alt="image-3"
-                src="./images/image-3.jpg"
-            /></a>
-          </li>
-          <!-- Clone image 1 -->
-          <li class="slider__image">
-            <a href="#!"
-              ><img
-                class="slider__img"
-                alt="image-1"
-                src="./images/image-1.jpg"
-            /></a>
-          </li>
-        </ul>
-        <button class="slider__button slider__button--right">></button>
+        <!-- Main show -->
+        <div class="slider__show">
+          <button class="slider__button slider__button--left"><</button>
+          <ul class="slider__images">
+            <!-- Clone image 3 -->
+            <li class="slider__image">
+              <a href="#!"
+                ><img
+                  class="slider__img"
+                  alt="image-3"
+                  src="./images/image-3.jpg"
+              /></a>
+            </li>
+            <!-- 3 images -->
+            <li class="slider__image">
+              <a href="#!"
+                ><img
+                  class="slider__img"
+                  alt="image-1"
+                  src="./images/image-1.jpg"
+              /></a>
+            </li>
+            <li class="slider__image">
+              <a href="#!"
+                ><img
+                  class="slider__img"
+                  alt="image-2"
+                  src="./images/image-2.jpg"
+              /></a>
+            </li>
+            <li class="slider__image">
+              <a href="#!"
+                ><img
+                  class="slider__img"
+                  alt="image-3"
+                  src="./images/image-3.jpg"
+              /></a>
+            </li>
+            <!-- Clone image 1 -->
+            <li class="slider__image">
+              <a href="#!"
+                ><img
+                  class="slider__img"
+                  alt="image-1"
+                  src="./images/image-1.jpg"
+              /></a>
+            </li>
+          </ul>
+          <button class="slider__button slider__button--right">></button>
+        </div>
 
         <!-- Dot -->
         <div class="slider__dots">
@@ -178,7 +194,7 @@
             <!-- Item 1 -->
             <div class="content__accordion-tab">
               <div
-                class="content__accordion-header content__accordion-header--active"
+                class="content__accordion-header"
                 data-tab="accordion-item-1"
               >
                 <span class="content__accordion-title"
@@ -187,10 +203,7 @@
                 <div class="content__accordion-icon">▶</div>
               </div>
 
-              <div
-                id="accordion-item-1"
-                class="content__accordion-body content__accordion-body--active"
-              >
+              <div id="accordion-item-1" class="content__accordion-body">
                 <div class="content__accordion-content">
                   In vestibulum lacus quis magna malesuada, a hendrerit tellus
                   ullamcorper. Vestibulum a sem tincidunt tellus rhoncus sodales
@@ -308,6 +321,7 @@
                     <div class="content__multilevel-icon">▶</div>
                   </div>
 
+                  <!-- Level 3 -->
                   <div
                     id="menu-1-2"
                     class="content__multilevel-content content__multilevel-content--child"
@@ -317,23 +331,105 @@
                     >
                       <div
                         class="content__multilevel-header content__multilevel-header--grandchild"
+                        data-menu="menu-1-2-1"
                       >
                         <span
                           class="content__multilevel-title content__multilevel-title--grandchild"
                           >Menu Level 3 - Item 1</span
                         >
+                        <div class="content__multilevel-icon">▶</div>
+                      </div>
+
+                      <!-- Level 4 -->
+                      <div
+                        id="menu-1-2-1"
+                        class="content__multilevel-content content__multilevel-content--grandchild"
+                      >
+                        <div
+                          class="content__multilevel-item content__multilevel-item--3rd-child"
+                        >
+                          <div
+                            class="content__multilevel-header content__multilevel-header--3rd-child"
+                          >
+                            <span
+                              class="content__multilevel-title content__multilevel-title--3rd-child"
+                              >Menu Level 4 - Item 1</span
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="content__multilevel-item content__multilevel-item--3rd-child"
+                        >
+                          <div
+                            class="content__multilevel-header content__multilevel-header--3rd-child"
+                          >
+                            <span
+                              class="content__multilevel-title content__multilevel-title--3rd-child"
+                              >Menu Level 4 - Item 2</span
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="content__multilevel-item content__multilevel-item--3rd-child"
+                        >
+                          <div
+                            class="content__multilevel-header content__multilevel-header--3rd-child"
+                          >
+                            <span
+                              class="content__multilevel-title content__multilevel-title--3rd-child"
+                              >Menu Level 4 - Item 3</span
+                            >
+                          </div>
+                        </div>
                       </div>
                     </div>
+
                     <div
                       class="content__multilevel-item content__multilevel-item--grandchild"
                     >
                       <div
                         class="content__multilevel-header content__multilevel-header--grandchild"
+                        data-menu="menu-1-2-2"
                       >
                         <span
                           class="content__multilevel-title content__multilevel-title--grandchild"
                           >Menu Level 3 - Item 2</span
                         >
+                        <div class="content__multilevel-icon">▶</div>
+                      </div>
+
+                      <!-- Level 4 -->
+                      <div
+                        id="menu-1-2-2"
+                        class="content__multilevel-content content__multilevel-content--grandchild"
+                      >
+                        <div
+                          class="content__multilevel-item content__multilevel-item--3rd-child"
+                        >
+                          <div
+                            class="content__multilevel-header content__multilevel-header--3rd-child"
+                          >
+                            <span
+                              class="content__multilevel-title content__multilevel-title--3rd-child"
+                              >Menu Level 4 - Item 4</span
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="content__multilevel-item content__multilevel-item--3rd-child"
+                        >
+                          <div
+                            class="content__multilevel-header content__multilevel-header--3rd-child"
+                          >
+                            <span
+                              class="content__multilevel-title content__multilevel-title--3rd-child"
+                              >Menu Level 4 - Item 5</span
+                            >
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

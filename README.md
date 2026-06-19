@@ -6,6 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Goal](#goal)
+  - [Fix bugs](#fix-bugs)
   - [UI Screenshots](#ui-screenshots)
   - [Time Tracking](#time-tracking)
   - [Future Work](#future-work)
@@ -41,6 +42,13 @@
 
 - Learning and using slider image, tab function, accordion, 3-levels menu in jquery
 
+## Fix bugs
+
+- Wrong layout
+- Header & Footer have the same color
+- Wrong slide (2 half picture of 2 different images in 1 screen)
+- Button must be at the center
+
 ## UI Screenshots
 
 | Screen1                          |     | Screen 2                          |
@@ -54,7 +62,7 @@
 | 2026-06-16 | Setup exercise, create README, do slider image | .     |
 | 2026-06-17 | Do slider image jquery (cont), tab, accordion  | .     |
 | 2026-06-18 | Do multilevel menu, fix css & js logic         | .     |
-| 2026-06-19 | Fix multilevel menu, do responsive             | .     |
+| 2026-06-19 | Fix multilevel menu, do responsive, fix bugs   | .     |
 
 ## Future Work
 

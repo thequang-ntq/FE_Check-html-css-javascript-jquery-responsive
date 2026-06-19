@@ -5,6 +5,7 @@ $(document).ready(function () {
     const $mobileButton = $(".header__mobile-button");
     const $mobileMenu = $(".header__mobile-menu");
     const $mobileItem = $(".header__mobile-item");
+    const $closeButton = $(".header__mobile-close");
 
     // Click mobile button -> Show mobile menu, add active for button, show overlay
     $mobileButton.click(function () {
@@ -15,6 +16,13 @@ $(document).ready(function () {
 
     // Click header overlay -> Hide mobile menu, remove active for button, hide overlay
     $overlay.click(function () {
+      $overlay.removeClass("header__overlay--active");
+      $mobileButton.removeClass("header__mobile-button--active");
+      $mobileMenu.removeClass("header__mobile-menu--active");
+    });
+
+    // Click close button - Hide mobile menu, remove active for button ,hide overlay
+    $closeButton.click(function () {
       $overlay.removeClass("header__overlay--active");
       $mobileButton.removeClass("header__mobile-button--active");
       $mobileMenu.removeClass("header__mobile-menu--active");
@@ -34,6 +42,7 @@ $(document).ready(function () {
     const totalSlides = 5;
     const $slideButton = $(".slider__button");
     const $slideImageList = $(".slider__images");
+    const $slideImage = $(".slider__image");
     const $dot = $(".slider__dot");
 
     // Update current dot
@@ -45,29 +54,39 @@ $(document).ready(function () {
 
     // Change slide animation
     function changeSlide(isButton, isPrev) {
-      $slideImageList.animate(
-        {
-          marginLeft: -(currentSlide * 100) + "%",
-        },
-        600,
-        function () {
-          if (isButton) {
-            if (isPrev) {
-              if (currentSlide === 0) {
-                currentSlide = 3;
-                $slideImageList.css("marginLeft", "-300%");
-              }
-            } else {
-              if (currentSlide === totalSlides - 1) {
-                currentSlide = 1;
-                $slideImageList.css("marginLeft", "-100%");
-              }
+      $slideImage.css("transform", `translateX(${-currentSlide * 100}%)`);
+
+      setTimeout(() => {
+        if (isButton) {
+          if (isPrev) {
+            if (currentSlide === 0) {
+              currentSlide = 3;
+              // Turn transition off
+              $slideImage.css("transition", "none");
+              $slideImage.css("transform", "translateX(-300%)");
+
+              // Turn transition on
+              setTimeout(() => {
+                $slideImage.css("transition", "transform 0.6s ease");
+              }, 50);
+            }
+          } else {
+            if (currentSlide === totalSlides - 1) {
+              currentSlide = 1;
+              // Turn transition off
+              $slideImage.css("transition", "none");
+              $slideImage.css("transform", "translateX(-100%)");
+
+              // Turn transition on
+              setTimeout(() => {
+                $slideImage.css("transition", "transform 0.6s ease");
+              }, 50);
             }
           }
-          $slideButton.prop("disabled", false);
-          $dot.prop("disabled", false);
-        },
-      );
+        }
+        $slideButton.prop("disabled", false);
+        $dot.prop("disabled", false);
+      }, 600);
     }
 
     // Click prev/next button: show slide with animation, disabled button when trigger animation
