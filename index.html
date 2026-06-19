@@ -243,11 +243,152 @@
           </div>
 
           <!-- Multilevel menu (3 levels) -->
-          <div class="content__muitilevel-tabs"></div>
+          <div class="content__multilevel-menus">
+            <!-- Level 1 -->
+            <div class="content__multilevel-item">
+              <div class="content__multilevel-header" data-menu="menu-1">
+                <span class="content__multilevel-title"
+                  >Menu level 1 - Item 1</span
+                >
+                <div class="content__multilevel-icon">▶</div>
+              </div>
+
+              <!-- Level 2 -->
+              <div id="menu-1" class="content__multilevel-content">
+                <div
+                  class="content__multilevel-item content__multilevel-item--child"
+                >
+                  <div
+                    class="content__multilevel-header content__multilevel-header--child"
+                  >
+                    <span
+                      class="content__multilevel-title content__multilevel-title--child"
+                      >Menu Level 2 - Item 1</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="content__multilevel-item content__multilevel-item--child"
+                >
+                  <div
+                    class="content__multilevel-header content__multilevel-header--child"
+                    data-menu="menu-1-2"
+                  >
+                    <span
+                      class="content__multilevel-title content__multilevel-title--child"
+                      >Menu Level 2 - Item 2</span
+                    >
+                    <div class="content__multilevel-icon">▶</div>
+                  </div>
+
+                  <div
+                    id="menu-1-2"
+                    class="content__multilevel-content content__multilevel-content--child"
+                  >
+                    <div
+                      class="content__multilevel-item content__multilevel-item--grandchild"
+                    >
+                      <div
+                        class="content__multilevel-header content__multilevel-header--grandchild"
+                      >
+                        <span
+                          class="content__multilevel-title content__multilevel-title--grandchild"
+                          >Menu Level 3 - Item 1</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="content__multilevel-item content__multilevel-item--grandchild"
+                    >
+                      <div
+                        class="content__multilevel-header content__multilevel-header--grandchild"
+                      >
+                        <span
+                          class="content__multilevel-title content__multilevel-title--grandchild"
+                          >Menu Level 3 - Item 2</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 1 - Item 2 -->
+            <div class="content__multilevel-item">
+              <div class="content__multilevel-header">
+                <span class="content__multilevel-title"
+                  >Menu Level 1 - Item 2</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Right column: News list -->
-        <div class="content__right-column">a</div>
+        <div class="content__right-column">
+          <div class="content__news-list">
+            <!-- News 1 -->
+            <div class="content__news">
+              <img
+                class="content__news-image"
+                src="./images/news-1.png"
+                alt="Image 1"
+              />
+              <div class="content__news-info">
+                <div class="content__news-text">
+                  Top những món quà nên mua khi đi du lịch Hàn Quốc
+                </div>
+                <div class="content__news-date">20-12-2019</div>
+              </div>
+            </div>
+
+            <!-- News 2 -->
+            <div class="content__news">
+              <img
+                class="content__news-image"
+                src="./images/news-2.png"
+                alt="Image 1"
+              />
+              <div class="content__news-info">
+                <div class="content__news-text">
+                  Những lưu ý dành cho bạn khi đi du lịch nước ngoài
+                </div>
+                <div class="content__news-date">20-12-2019</div>
+              </div>
+            </div>
+
+            <!-- News 3 -->
+            <div class="content__news">
+              <div class="content__news-image">
+                <img src="./images/news-3.png" alt="Image 1" />
+              </div>
+              <div class="content__news-info">
+                <div class="content__news-text">
+                  VietNam Airline cung cấp dịch vụ Wifi trên máy bay từ
+                  10/10/2019 với giá chỉ từ 75.000đ
+                </div>
+                <div class="content__news-date">20-12-2019</div>
+              </div>
+            </div>
+
+            <!-- News 4 -->
+            <div class="content__news">
+              <img
+                class="content__news-image"
+                src="./images/news-4.png"
+                alt="Image 1"
+              />
+              <div class="content__news-info">
+                <div class="content__news-text">
+                  Những điều thú vị chỉ có tại đất nước Nhật Bản
+                </div>
+                <div class="content__news-date">20-12-2019</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <script src="./plugins/jquery/jquery-4.0.0.min.js"></script>

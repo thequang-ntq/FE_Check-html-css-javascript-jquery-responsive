@@ -113,9 +113,16 @@ $(document).ready(function () {
     const $accordionContent = $(".content__accordion-body");
 
     $accordionButton.click(function () {
+      // Click active -> Only close
       if ($(this).hasClass("content__accordion-header--active")) {
+        $accordionButton.removeClass("content__accordion-header--active");
+        $accordionContent
+          .removeClass(".content__accordion-body--active")
+          .slideUp(300);
         return;
       }
+
+      // Click other -> Close + Open
       $accordionButton.removeClass("content__accordion-header--active");
       $accordionContent
         .removeClass(".content__accordion-body--active")
@@ -125,6 +132,62 @@ $(document).ready(function () {
       const accordionContentId = $(this).data("tab");
       $("#" + accordionContentId)
         .addClass("content__accordion-body--active")
+        .slideDown(300);
+    });
+  }
+
+  // Multilevel menu jquery
+  {
+    const $menuHeader = $(".content__multilevel-header");
+    const $menuContent = $(".content__multilevel-content");
+
+    // Show menus at inner level, hide menus at the same level when click header
+    $menuHeader.click(function (e) {
+      // Prevent bubbling in events (from child to parent)
+      e.stopPropagation();
+
+      const menuId = $(this).data("menu");
+      const $currentContent = $("#" + menuId);
+
+      // If header not have data-menu (no menu to open) then close all menus
+      if (!menuId) {
+        $menuHeader.removeClass("content__multilevel-header--active");
+        $menuContent
+          .removeClass("content__multilevel-content--active")
+          .slideUp(300);
+        return;
+      }
+
+      // Check if current menu is already active -> close it and return
+      if ($(this).hasClass("content__multilevel-header--active")) {
+        $(this).removeClass("content__multilevel-header--active");
+        $currentContent
+          .removeClass("content__multilevel-content--active")
+          .slideUp(300);
+        return;
+      }
+
+      // Close related menus at same level
+      // CLose header
+      $(this)
+        .closest(".content__multilevel-item")
+        .siblings()
+        .find(".content__multilevel-header--active")
+        .removeClass("content__multilevel-header--active")
+        .find(".content__multilevel-icon");
+
+      // Close content
+      $(this)
+        .closest(".content__multilevel-item")
+        .siblings()
+        .find(".content__multilevel-content--active")
+        .removeClass("content__multilevel-content--active")
+        .slideUp(300);
+
+      // Open current menu
+      $(this).addClass("content__multilevel-header--active");
+      $currentContent
+        .addClass("content__multilevel-content--active")
         .slideDown(300);
     });
   }

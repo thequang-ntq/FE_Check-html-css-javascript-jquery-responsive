@@ -22,8 +22,15 @@
     - fadeIn, hide in tab content
     - check if current tab is active tab, if not then remove 2 active, hide content, add 2 active to active tab and fadeIn
   - Accordion function
-    - active class
+    - active class in tab header & tab content
+    - data tab
+    - slideUp, slideDown in tab content
+    - check if current tab is active tab, if not then remove 2 active, slideUp, add 2 active to active tab and slideDown
   - 3-levels menu
+    - Repeating structure: menus is content of level 1, content is content of level 2,3... In 1 content: the items (tabs) to click -> this include header (clickable) and content of the next level
+    - data menu
+    - border in menus and border-bottom in header (not nth-of-type)
+    - logic: click header not have menus -> close all menus, otherwise open menu
   - List of news
 
 ## Goal
@@ -42,7 +49,8 @@
 | ---------- | ---------------------------------------------- | ----- |
 | 2026-06-16 | Setup exercise, create README, do slider image | .     |
 | 2026-06-17 | Do slider image jquery (cont), tab, accordion  | .     |
-| 2026-06-18 | Do multilevel menu, list of news, responsive   | .     |
+| 2026-06-18 | Do multilevel menu, fix css & js logic         | .     |
+| 2026-06-18 | Fix multilevel menu                            | .     |
 
 ## Future Work
 
