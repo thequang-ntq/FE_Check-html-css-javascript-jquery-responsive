@@ -203,7 +203,8 @@ $(document).ready(function () {
         .siblings()
         .find(".content__multilevel-header--active")
         .removeClass("content__multilevel-header--active")
-        .find(".content__multilevel-icon");
+        .find(".content__multilevel-icon")
+        .css("transform", "rotate(0deg)");
 
       // Close content
       $(this)
