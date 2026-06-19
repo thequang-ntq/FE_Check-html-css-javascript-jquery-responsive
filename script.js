@@ -1,4 +1,33 @@
 $(document).ready(function () {
+  // Header
+  {
+    const $overlay = $(".header__overlay");
+    const $mobileButton = $(".header__mobile-button");
+    const $mobileMenu = $(".header__mobile-menu");
+    const $mobileItem = $(".header__mobile-item");
+
+    // Click mobile button -> Show mobile menu, add active for button, show overlay
+    $mobileButton.click(function () {
+      $overlay.addClass("header__overlay--active");
+      $mobileButton.addClass("header__mobile-button--active");
+      $mobileMenu.addClass("header__mobile-menu--active");
+    });
+
+    // Click header overlay -> Hide mobile menu, remove active for button, hide overlay
+    $overlay.click(function () {
+      $overlay.removeClass("header__overlay--active");
+      $mobileButton.removeClass("header__mobile-button--active");
+      $mobileMenu.removeClass("header__mobile-menu--active");
+    });
+
+    // Click link in mobile menu -> Hide mobile menu, remove active for button, hide overlay
+    $mobileItem.click(function () {
+      $overlay.removeClass("header__overlay--active");
+      $mobileButton.removeClass("header__mobile-button--active");
+      $mobileMenu.removeClass("header__mobile-menu--active");
+    });
+  }
+
   // Slider image jquery
   {
     let currentSlide = 1;
@@ -45,7 +74,7 @@ $(document).ready(function () {
     // Next
     $(".slider__button--right").click(function () {
       currentSlide += 1;
-      updateDots(currentSlide);
+      updateDots(currentSlide === totalSlides - 1 ? 1 : currentSlide);
       $slideButton.prop("disabled", true);
       $dot.prop("disabled", true);
       changeSlide(true, false);
@@ -54,7 +83,7 @@ $(document).ready(function () {
     //Prev
     $(".slider__button--left").click(function () {
       currentSlide -= 1;
-      updateDots(currentSlide);
+      updateDots(currentSlide === 0 ? 3 : currentSlide);
       $slideButton.prop("disabled", true);
       $dot.prop("disabled", true);
       changeSlide(true, true);

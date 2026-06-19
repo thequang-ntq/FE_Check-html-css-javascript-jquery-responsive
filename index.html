@@ -7,16 +7,42 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Overlay -->
+    <div class="header__overlay"></div>
+
     <!-- Header: Navigation bar -->
     <header>
-      <ul>
-        <li>
-          <a href="#!">TRANG CHỦ</a>
-          <a href="#!">GIỚI THIỆU</a>
-          <a href="#!">SẢN PHẨM</a>
-          <a href="#!">CONTACT US</a>
-        </li>
-      </ul>
+      <nav class="header__nav">
+        <ul>
+          <li><a href="#!">TRANG CHỦ</a></li>
+          <p>|</p>
+          <li><a href="#!">GIỚI THIỆU</a></li>
+          <p>|</p>
+          <li><a href="#!">SẢN PHẨM</a></li>
+          <p>|</p>
+          <li><a href="#!">CONTACT US</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile menu -->
+      <nav class="header__nav-mobile">
+        <!-- Mobile menu button -->
+        <button class="header__mobile-button">
+          <span class="header__line"></span>
+          <span class="header__line"></span>
+          <span class="header__line"></span>
+        </button>
+
+        <!-- List -->
+        <div class="header__mobile-menu">
+          <ul class="header__mobile-list">
+            <li><a class="header__mobile-item" href="#!">TRANG CHỦ</a></li>
+            <li><a class="header__mobile-item" href="#!">GIỚI THIỆU</a></li>
+            <li><a class="header__mobile-item" href="#!">SẢN PHẨM</a></li>
+            <li><a class="header__mobile-item" href="#!">CONTACT US</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
     <!-- Main: Slider image, column contents -->
     <main>
@@ -391,6 +417,11 @@
         </div>
       </section>
     </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer__text">Copyright © Allright Reserved by NDDUONG</div>
+    </footer>
     <script src="./plugins/jquery/jquery-4.0.0.min.js"></script>
     <script src="script.js" defer></script>
   </body>

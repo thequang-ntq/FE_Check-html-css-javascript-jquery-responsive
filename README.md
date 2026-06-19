@@ -32,6 +32,10 @@
     - border in menus and border-bottom in header (not nth-of-type)
     - logic: click header not have menus -> close all menus, otherwise open menu
   - List of news
+  - Responsive
+    - Add mobile button, mobile menu, overlay
+    - Click mobile button -> Show mobile menu & overlay
+    - Click outside / link in mobile menu -> Hide mobile menu & overlay
 
 ## Goal
 
@@ -39,9 +43,9 @@
 
 ## UI Screenshots
 
-| Home                            |
-| ------------------------------- |
-| ![Home UI](images/screen-1.png) |
+| Screen1                          |     | Screen 2                          |
+| -------------------------------- | --- | --------------------------------- |
+| ![First UI](images/screen-1.png) |     | ![Second UI](images/screen-2.png) |
 
 ## Time Tracking
 
@@ -50,7 +54,7 @@
 | 2026-06-16 | Setup exercise, create README, do slider image | .     |
 | 2026-06-17 | Do slider image jquery (cont), tab, accordion  | .     |
 | 2026-06-18 | Do multilevel menu, fix css & js logic         | .     |
-| 2026-06-18 | Fix multilevel menu                            | .     |
+| 2026-06-19 | Fix multilevel menu, do responsive             | .     |
 
 ## Future Work
 
