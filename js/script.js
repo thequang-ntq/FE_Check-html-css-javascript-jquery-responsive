@@ -1,39 +1,83 @@
 $(document).ready(function () {
   // Header
   {
-    const $overlay = $(".header__overlay");
+    const $overlay = $(".overlay");
+    const $navHeader = $(".header__nav-dropdown-header");
+    const $navContent = $(".header__nav-dropdown-content");
+    const navHeaderActive = "header__nav-dropdown-header--active";
+    const navContentActive = "header__nav-dropdown-content--active";
     const $mobileButton = $(".header__mobile-button");
     const $mobileMenu = $(".header__mobile-menu");
     const $mobileItem = $(".header__mobile-item");
     const $closeButton = $(".header__mobile-close");
 
-    // Click mobile button -> Show mobile menu, add active for button, show overlay
-    $mobileButton.click(function () {
-      $overlay.addClass("header__overlay--active");
-      $mobileButton.addClass("header__mobile-button--active");
-      $mobileMenu.addClass("header__mobile-menu--active");
+    // Desktop dropdown
+    // Show menus at inner level, hide menus at the same level when hover navigation header
+    $navHeader.click(function (e) {
+      // Prevent bubbling in events (from child to parent)
+      e.stopPropagation();
+
+      const menuId = $(this).data("menu");
+      const $currentContent = $("#" + menuId);
+
+      // If header not have data-menu (no menu to open) then close all menus
+      if (!menuId) {
+        $navHeader.removeClass(navHeaderActive);
+        $navContent.removeClass(navContentActive).slideUp(300);
+        return;
+      }
+
+      // Check if current menu is already active -> close it and return
+      if ($(this).hasClass(navHeaderActive)) {
+        $(this).removeClass(navHeaderActive);
+        $currentContent.removeClass(navContentActive).slideUp(300);
+        return;
+      }
+
+      // Close related menus at same level
+      // CLose header
+      $(this)
+        .closest(".content__multilevel-item")
+        .siblings()
+        .find(".content__multilevel-header--active")
+        .removeClass("content__multilevel-header--active");
+
+      // Close content
+      $(this)
+        .closest(".content__multilevel-item")
+        .siblings()
+        .find(".content__multilevel-content--active")
+        .removeClass("content__multilevel-content--active")
+        .slideUp(300);
+
+      // Open current menu
+      $(this).addClass("content__multilevel-header--active");
+      $currentContent
+        .addClass("content__multilevel-content--active")
+        .slideDown(300);
     });
+
+    // Mobile
+
+    // Function toggle mobile menu logic -> Show/hide mobile menu, add/remove active for button, show/hide overlay
+    function toggleMobileMenu(isOpen) {
+      const action = isOpen ? "addClass" : "removeClass";
+      $overlay[action]("overlay--active");
+      $mobileButton[action]("header__mobile-button--active");
+      $mobileMenu[action]("header__mobile-menu--active");
+    }
+
+    // Click mobile button -> Show mobile menu, add active for button, show overlay
+    $mobileButton.click(() => toggleMobileMenu(true));
 
     // Click header overlay -> Hide mobile menu, remove active for button, hide overlay
-    $overlay.click(function () {
-      $overlay.removeClass("header__overlay--active");
-      $mobileButton.removeClass("header__mobile-button--active");
-      $mobileMenu.removeClass("header__mobile-menu--active");
-    });
+    $overlay.click(() => toggleMobileMenu(false));
 
     // Click close button - Hide mobile menu, remove active for button ,hide overlay
-    $closeButton.click(function () {
-      $overlay.removeClass("header__overlay--active");
-      $mobileButton.removeClass("header__mobile-button--active");
-      $mobileMenu.removeClass("header__mobile-menu--active");
-    });
+    $closeButton.click(() => toggleMobileMenu(false));
 
     // Click link in mobile menu -> Hide mobile menu, remove active for button, hide overlay
-    $mobileItem.click(function () {
-      $overlay.removeClass("header__overlay--active");
-      $mobileButton.removeClass("header__mobile-button--active");
-      $mobileMenu.removeClass("header__mobile-menu--active");
-    });
+    $mobileItem.click(() => toggleMobileMenu(false));
   }
 
   // Slider image jquery
@@ -44,12 +88,13 @@ $(document).ready(function () {
     const $slideImageList = $(".slider__images");
     const $slideImage = $(".slider__image");
     const $dot = $(".slider__dot");
+    const dotActive = "slider__dot--active";
 
     // Update current dot
     function updateDots(slideIndex) {
-      $dot.removeClass("slider__dot--active");
+      $dot.removeClass(dotActive);
       const dotIndex = slideIndex - 1;
-      $dot.eq(dotIndex).addClass("slider__dot--active");
+      $dot.eq(dotIndex).addClass(dotActive);
     }
 
     // Change slide animation
@@ -136,20 +181,22 @@ $(document).ready(function () {
     // Change state tab header, show / hide tab content
     const $tabButton = $(".content__tab");
     const $tabContent = $(".content__tab-content");
+    const tabActive = "content__tab--active";
+    const tabContentActive = "content__tab-content--active";
 
     $tabButton.click(function () {
       // If choose active tab --> return
-      if ($(this).hasClass("content__tab--active")) {
+      if ($(this).hasClass(tabActive)) {
         return;
       }
 
-      $tabButton.removeClass("content__tab--active");
-      $tabContent.removeClass("content__tab-content--active").hide();
+      $tabButton.removeClass(tabActive);
+      $tabContent.removeClass(tabContentActive).hide();
 
-      $(this).addClass("content__tab--active");
+      $(this).addClass(tabActive);
       const tabContentId = $(this).data("tab");
       $("#" + tabContentId)
-        .addClass("content__tab-content--active")
+        .addClass(tabContentActive)
         .fadeIn(300);
     });
   }
@@ -159,27 +206,26 @@ $(document).ready(function () {
     // Show/hide content in accordion tab
     const $accordionButton = $(".content__accordion-header");
     const $accordionContent = $(".content__accordion-body");
+    const accordionHeaderActive = "content__accordion-header--active";
+    const accordionBodyActive = "content__accordion-body--active";
 
     $accordionButton.click(function () {
       // Click active -> Only close
-      if ($(this).hasClass("content__accordion-header--active")) {
-        $accordionButton.removeClass("content__accordion-header--active");
-        $accordionContent
-          .removeClass(".content__accordion-body--active")
-          .slideUp(300);
+      if ($(this).hasClass(accordionHeaderActive)) {
+        $accordionButton.removeClass(accordionHeaderActive);
+        $accordionContent.removeClass("." + accordionBodyActive).slideUp(300);
         return;
       }
 
-      // Click other -> Close + Open
-      $accordionButton.removeClass("content__accordion-header--active");
-      $accordionContent
-        .removeClass(".content__accordion-body--active")
-        .slideUp(300);
-
-      $(this).addClass("content__accordion-header--active");
+      // Click other -> Close others + Open
       const accordionContentId = $(this).data("tab");
+
+      $accordionButton.removeClass(accordionHeaderActive);
+      $accordionContent.removeClass("." + accordionBodyActive).slideUp(300);
+
+      $(this).addClass(accordionHeaderActive);
       $("#" + accordionContentId)
-        .addClass("content__accordion-body--active")
+        .addClass(accordionBodyActive)
         .slideDown(300);
     });
   }
@@ -188,7 +234,9 @@ $(document).ready(function () {
   {
     const $menuHeader = $(".content__multilevel-header");
     const $menuContent = $(".content__multilevel-content");
-
+    const menuHeaderActive = "content__multilevel-header--active";
+    const menuContentActive = "content__multilevel-content--active";
+    const menuItem = "content__multilevel-item";
     // Show menus at inner level, hide menus at the same level when click header
     $menuHeader.click(function (e) {
       // Prevent bubbling in events (from child to parent)
@@ -199,45 +247,37 @@ $(document).ready(function () {
 
       // If header not have data-menu (no menu to open) then close all menus
       if (!menuId) {
-        $menuHeader.removeClass("content__multilevel-header--active");
-        $menuContent
-          .removeClass("content__multilevel-content--active")
-          .slideUp(300);
+        $menuHeader.removeClass(menuHeaderActive);
+        $menuContent.removeClass("." + menuContentActive).slideUp(300);
         return;
       }
 
       // Check if current menu is already active -> close it and return
-      if ($(this).hasClass("content__multilevel-header--active")) {
-        $(this).removeClass("content__multilevel-header--active");
-        $currentContent
-          .removeClass("content__multilevel-content--active")
-          .slideUp(300);
+      if ($(this).hasClass(menuHeaderActive)) {
+        $(this).removeClass(menuHeaderActive);
+        $currentContent.removeClass("." + menuContentActive).slideUp(300);
         return;
       }
 
       // Close related menus at same level
       // CLose header
       $(this)
-        .closest(".content__multilevel-item")
+        .closest("." + menuItem)
         .siblings()
-        .find(".content__multilevel-header--active")
-        .removeClass("content__multilevel-header--active")
-        .find(".content__multilevel-icon")
-        .css("transform", "rotate(0deg)");
+        .find("." + menuHeaderActive)
+        .removeClass(menuHeaderActive);
 
       // Close content
       $(this)
-        .closest(".content__multilevel-item")
+        .closest("." + menuItem)
         .siblings()
-        .find(".content__multilevel-content--active")
-        .removeClass("content__multilevel-content--active")
+        .find("." + menuContentActive)
+        .removeClass("." + menuContentActive)
         .slideUp(300);
 
       // Open current menu
-      $(this).addClass("content__multilevel-header--active");
-      $currentContent
-        .addClass("content__multilevel-content--active")
-        .slideDown(300);
+      $(this).addClass(menuHeaderActive);
+      $currentContent.addClass(menuContentActive).slideDown(300);
     });
   }
 });

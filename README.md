@@ -7,6 +7,8 @@
   - [Features](#features)
   - [Goal](#goal)
   - [Fix bugs](#fix-bugs)
+    - [2026-06-19](#2026-06-19)
+    - [2026-06-22](#2026-06-22)
   - [UI Screenshots](#ui-screenshots)
   - [Time Tracking](#time-tracking)
   - [Future Work](#future-work)
@@ -44,16 +46,32 @@
 
 ## Fix bugs
 
+### 2026-06-19
+
 - Wrong layout
 - Header & Footer have the same color
 - Wrong slide (2 half picture of 2 different images in 1 screen)
 - Button must be at the center
 
+### 2026-06-22
+
+- Change folder structure
+- Responsive: Mobile layout 1 column, tablet layout 2 columns
+  - Images in news: text long --> 1 image height > others
+  - Footer not in right place
+  - Tablet need 2 news in 1 rows. Also large mobile (if has enough width then 2 news in 1 rows).
+- Top header outside header
+- Delete transform css(0) at multilevel menu jquery
+- Refactor click mobile menu button
+- Add more child menus in multilevel menus
+- Add hover to show child menus for navigation header
+- Add "." + before remove class name
+
 ## UI Screenshots
 
-| Screen1                          |     | Screen 2                          |
-| -------------------------------- | --- | --------------------------------- |
-| ![First UI](images/screen-1.png) |     | ![Second UI](images/screen-2.png) |
+| Screen1                                      |     | Screen 2                                      |
+| -------------------------------------------- | --- | --------------------------------------------- |
+| ![First UI](images/screenshots/screen-1.png) |     | ![Second UI](images/screenshots/screen-2.png) |
 
 ## Time Tracking
 
@@ -63,6 +81,7 @@
 | 2026-06-17 | Do slider image jquery (cont), tab, accordion  | .     |
 | 2026-06-18 | Do multilevel menu, fix css & js logic         | .     |
 | 2026-06-19 | Fix multilevel menu, do responsive, fix bugs   | .     |
+| 2026-06-22 | Fix bugs                                       | .     |
 
 ## Future Work
 
